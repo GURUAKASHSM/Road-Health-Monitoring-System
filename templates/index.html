@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Object Detection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px; /* Added margin to the body */
+            padding: 0;
+            background-color: #f1f1f1; /* Background color added */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        h1 {
+            color: #337ab7;
+            font-size: 32px; /* Increased font size */
+            margin-bottom: 20px; /* Added margin at the bottom */
+        }
+        form {
+            margin-top: 20px;
+        }
+        input[type="submit"] {
+            background-color: #337ab7;
+            color: #fff;
+            padding: 12px 30px; /* Increased padding */
+            border: none;
+            cursor: pointer;
+            margin: 10px; /* Increased margin */
+            border-radius: 5px; /* Smooth edges */
+        }
+        input[type="submit"]:hover {
+            background-color: #286090;
+        }
+        /* Styles for the file input button */
+        input[type="file"] {
+            display: none; /* Hide the original file input */
+        }
+        label.upload-button {
+            background-color: #337ab7;
+            color: #fff;
+            padding: 12px 30px; /* Increased padding */
+            border: none;
+            cursor: pointer;
+            display: inline-block;
+            margin: 10px; /* Increased margin */
+            border-radius: 5px; /* Smooth edges */
+        }
+        label.upload-button:hover {
+            background-color: #286090;
+        }
+        p#fileSelected {
+            font-size: 20px; /* Increased font size */
+            margin-top: 20px; /* Added margin at the top */
+        }
+        .drop-area {
+            border: 2px dashed #337ab7;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 5px; /* Smooth edges */
+        }
+        footer {
+            margin-top: 40px;
+            color: #666;
+            font-size: 12px;
+        }
+        /* Additional CSS for team members' names */
+        .team-member {
+            color: #337ab7; /* Red color */
+            font-weight: bold;
+        }
+        .team-member.green {
+            color: #00ff00; /* Green color */
+        }
+        .team-member.blue {
+            color: #0000ff; /* Blue color */
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>POTHOLES DETECTION</h1>
+        
+        <form action="/" method="post" enctype="multipart/form-data">
+            <!-- Use a label to create a custom file input button -->
+            <label class="upload-button" for="fileInput">Choose File</label>
+            <input type="file" name="file" id="fileInput" onchange="showFileName()">
+            <input type="submit" value="Detect">
+        </form>
+        <p id="fileSelected"></p> <!-- This element will show the selected file name -->
+
+        <!-- Drag and Drop area -->
+        <div class="drop-area" ondrop="handleDrop(event)" ondragover="handleDragOver(event)" ondragleave="handleDragLeave(event)">
+            <p>Drag and drop files here to upload</p>
+        </div>
+        <br>
+        <br>
+        <footer>
+            <center>
+                <span class="team-member"><br>TEAM MEMBERS:</span><br>
+                <span class="team-member">SUJITHKUMAR.S - 201EC264</span><br>
+                <span class="team-member">GURUAKASH.S.M - 201EC152</span><br>
+                <span class="team-member">SANTHOSH.B - 201EC242</span>
+                <br><br>© Copyright 2023. Made by TECHNOWILD<br>
+            </center>
+        </footer>
+    </div>
+
+    <script>
+        function showFileName() {
+            const fileInput = document.getElementById('fileInput');
+            const fileSelected = document.getElementById('fileSelected');
+            if (fileInput.files.length > 0) {
+                fileSelected.textContent = 'Selected file: ' + fileInput.files[0].name;
+            } else {
+                fileSelected.textContent = ''; // Clear the text if no file selected
+            }
+        }
+
+        function handleDrop(event) {
+            event.preventDefault();
+            event.stopPropagation();
+            const fileInput = document.getElementById('fileInput');
+            const fileSelected = document.getElementById('fileSelected');
+            const file = event.dataTransfer.files[0];
+
+            if (file) {
+                fileInput.files = event.dataTransfer.files;
+                fileSelected.textContent = 'Selected file: ' + file.name;
+            }
+            event.target.style.backgroundColor = 'transparent'; // Reset background color after drop
+        }
+
+        function handleDragOver(event) {
+            event.preventDefault();
+            event.stopPropagation();
+            event.target.style.backgroundColor = '#e3f2fd';
+        }
+
+        function handleDragLeave(event) {
+            event.preventDefault();
+            event.stopPropagation();
+            event.target.style.backgroundColor = 'transparent';
+        }
+    </script>
+</body>
+</html>
