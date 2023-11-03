@@ -32,9 +32,7 @@ To get started with the Road Health Monitoring Project, follow these steps:
 
 This project is licensed under the [MIT License](LICENSE). You are encouraged to fork and customize this project to meet your specific requirements.
 
-## Contributing
 
-We welcome contributions from the open-source community. If you'd like to contribute to the Road Health Monitoring Project, please see the [CONTRIBUTING.md](CONTRIBUTING.md) file for guidelines and best practices.
 
 ## Authors
 
@@ -46,7 +44,7 @@ We'd like to express our gratitude to the contributors, libraries, and tools tha
 
 ## Support and Contact
 
-For inquiries and support, please contact our project team at [support@example.com].
+For inquiries and support, please contact our project team at [guruakashsm@gmail.com].
 
 ---
 
